@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+
+  nuget-server:
+    image: sunside/simple-nuget-server
+    
+    environment:
+      - NUGET_API_KEY=oy2eikkkxu6t2jbesfdaxxqfmybi3aketffycgpakqwfb4
+    volumes:
+      - /data/nuget/database:/var/www/db
+      - /data/nuget/packages:/var/www/packagefiles
+    ports:
+      - "8060:80"  
+    
+    restart: always
+    user: root
+    container_name: nuget-server
